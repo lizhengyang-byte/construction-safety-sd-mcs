@@ -67,6 +67,7 @@ def fig_compare():
         for y, v in enumerate(vals):
             ax.text(v, y, " " + fmt.format(v), va="center", fontsize=9)
         ax.set_title(title, fontsize=10); ax.invert_yaxis()
+        ax.set_xlim(0, max(vals) * 1.18)
         ax.grid(axis="x", alpha=0.3)
     fig.suptitle("三方案：均值与尾部的表现分叉", fontsize=11)
     save(fig, "fig_compare")
