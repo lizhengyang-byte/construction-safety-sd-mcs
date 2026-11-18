@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+output/*.json
+output/*.csv
+docs/figures/*.png
+.venv/
+.DS_Store
