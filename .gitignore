@@ -1,7 +1,6 @@
 __pycache__/
 *.pyc
-output/*.json
-output/*.csv
-docs/figures/*.png
-.venv/
-.DS_Store
+draft_*/
+.*
+# results.json 由脚本生成，不入库（结果表 csv 已入库）
+output/results.json
