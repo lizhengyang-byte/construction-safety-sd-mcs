@@ -4,7 +4,7 @@
 
 给定一笔安全投入和一套巡检安排，回答项目管理真正需要的三个问题：一个施工周期内至少发生一次事故的概率是多少？总成本的最坏情况（P95/P99）有多差？事故停工对进度基线的期望冲击有多大？
 
-本项目是完整可复现的模型代码与实验脚本，配有约 2.9 万字论文（飞书文档）、七张矢量配图、单元测试与 CI。
+本项目是完整可复现的模型代码与实验脚本，配有论文（飞书文档与 [`docs/paper.md`](docs/paper.md) 两个同源版本）、七张矢量配图、单元测试与 CI。
 
 ## 一、模型概要
 
@@ -52,6 +52,7 @@ output/
   results.json    全部实验数值（运行生成，不入库以免仓库膨胀）
   scheme_summary.csv / investment_sweep.csv  结果表（已入库，便于核对）
 docs/
+  paper.md        论文 Markdown 版（与飞书文档同源）
   figures/*.svg   论文用七张矢量图（由 results.json 同源数据绘制）
   blocks/*.html   飞书 HTML5 block 版本
 .github/workflows/ci.yml
@@ -93,9 +94,10 @@ CI 在每次推送时跑单元测试与完整实验，并校验关键指标是�
 
 ## 七、论文与引用
 
-论文《基于系统动力学与蒙特卡洛耦合的土木工程施工安全风险量化研究》（v2）位于飞书云盘 `土木工程 / 07_施工安全SD-MCS仿真`：
+论文《基于系统动力学与蒙特卡洛耦合的土木工程施工安全风险量化研究》（v2）有两个同源版本：
 
-https://my.feishu.cn/docx/ZWBFd5p1Got9rHxjgHicVXiDn0e
+- **Markdown 版（本仓库）**：[`docs/paper.md`](docs/paper.md)
+- **飞书文档（带交互矢量配图）**：https://my.feishu.cn/docx/ZWBFd5p1Got9rHxjgHicVXiDn0e ，位于云盘 `土木工程 / 07_施工安全SD-MCS仿真`
 
 引用格式见 `CITATION.cff`。
 
