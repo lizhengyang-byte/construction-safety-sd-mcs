@@ -8,7 +8,7 @@
 
 > **v3 已发布**：在 v2 基础上完成 20 项机制增强（I/f 解耦、事故闭环、两层不确定性、Sobol 全局敏感性、参数相关抽样、巡检成本入账、CVaR、独立随机流、校准/分岔/代理模型等），并产出完整的改进前后对照。详见 **[`docs/improvement_report.md`](docs/improvement_report.md)**。v3 通过 `FEATURES` 开关字典可**逐位退化为 v2**，保证改进可加、可回退、可逐项归因。
 >
-> **v3.1 博弈论 / 运筹学扩展**：在 v3 之上新增四个模块——运筹决策层（期望/CVaR/鲁棒随机规划求最优 (I,f)）、监管–承包商 Stackelberg 博弈与威慑门槛、多承包商公地悲剧、蒙特卡洛方差缩减与主动学习。详见 **[`docs/game_or_report.md`](docs/game_or_report.md)**。
+> **v3.2 博弈论 / 运筹学扩展**：在 v3 之上新增六个模块——运筹决策层（期望/CVaR/鲁棒随机规划求最优 (I,f)）、监管–承包商 Stackelberg 博弈与威慑门槛、多承包商公地悲剧、蒙特卡洛方差缩减与主动学习、委托–代理最优激励契约、MDP 自适应巡检。详见 **[`docs/game_or_report.md`](docs/game_or_report.md)**。
 
 ## 一、模型概要
 
@@ -52,6 +52,8 @@ src/
   game.py         监管–承包商 Stackelberg 博弈 + 威慑门槛
   game_multi.py   多承包商公共安全外部性博弈（公地悲剧）
   mc_advanced.py  蒙特卡洛方差缩减（分层/重要性采样）+ 主动学习
+  principal_agent.py  委托–代理最优激励契约（机制设计，求解最小事故罚金）
+  mdp_inspection.py   MDP 自适应巡检策略（动态规划求最优状态依赖巡检）
   charts.py       读取 results.json 生成 PNG 配图（matplotlib）
   compare_figs.py 生成 v2-vs-v3 三张对比图
   render_svg.py   生成 SVG 矢量配图（matplotlib SVG 后端，含结构图）
@@ -69,11 +71,13 @@ output/
   game.json           监管–承包商博弈：威慑门槛 + Stackelberg 均衡
   game_multi.json     多承包商公地悲剧：Nash vs 社会最优 + PHI 扫描
   mc_advanced.json    方差缩减 + 重要性采样 + 主动学习结果
+  principal_agent.json 委托–代理最优激励契约结果（P*/w0*/契约设计价值）
+  mdp_inspection.json  MDP 自适应巡检策略结果（静态 vs 自适应成本）
   scheme_summary.csv / investment_sweep.csv / v2_vs_v3_schemes.csv  结果表
 docs/
   paper.md            论文 Markdown 版（与飞书文档同源，v2 论文）
   improvement_report.md  v2→v3 全部 20 项改进对照报告（核心交付）
-  game_or_report.md    博弈论 / 运筹学四模块报告（v3.1）
+  game_or_report.md    博弈论 / 运筹学六模块报告（v3.2）
   figures/*.svg       矢量图（并附 .png 预览）
 .github/workflows/
   ci.yml          单元测试 + 实验复现 + 指标回归校验
@@ -93,6 +97,8 @@ python src/or_opt.py        # 运筹决策层：期望/CVaR/鲁棒最优 (I,f)
 python src/game.py          # 监管–承包商 Stackelberg 博弈 + 威慑门槛
 python src/game_multi.py    # 多承包商公地悲剧
 python src/mc_advanced.py   # MC 方差缩减 + 主动学习
+python src/principal_agent.py  # 委托–代理最优激励契约
+python src/mdp_inspection.py   # MDP 自适应巡检策略
 python src/render_svg.py    # 生成 docs/figures/*.svg
 pytest -q                   # 14 项单元测试
 ```
@@ -124,7 +130,7 @@ CI 在每次推送时跑单元测试与完整实验，并校验关键指标是�
 3. **运气主导成本方差。** 两层不确定性分解显示偶然不确定性占 **96.9%**，参数标定再准也只能压掉约 3% 方差——事故成本本质由运气主导。
 4. **模型自洽且校准良好。** 解析稳态 vs 仿真相对误差 <1%；PIT 尾部覆盖率 80/90/95% 档分别为 80.2/90.1/95.0%，近乎完美校准。
 
-### 5.4 博弈论 / 运筹学扩展（v3.1）
+### 5.4 博弈论 / 运筹学扩展（v3.2）
 
 | 模块 | 关键结论 |
 |---|---|
@@ -132,8 +138,10 @@ CI 在每次推送时跑单元测试与完整实验，并校验关键指标是�
 | 监管–承包商博弈 | 事故处罚/赔付基数 **L_acc\*≈200 万元**是威慑门槛：低于此承包商维持偷工+低投入；Stackelberg 均衡 e\*=0（重罚到位后额外监查多余、效率损失归零）。先立重罚、再谈检查。 |
 | 多承包商公地悲剧 | 5 家 Nash 单家 I=6（总 30 万）vs 社会最优 I=12（总 60 万），**缺口 50%**；只要 N>1 且外部性未完全内化，公地悲剧结构性存在，需总包统一管理/联保连坐内部化。 |
 | MC 引擎升级 | 机械按 g0 分层反而变差（概率 +10%、CVaR +80%，诚实记录）；重要性采样 2000 样本逼近 5 万样本稀有概率（0.2585 vs 0.2677，ESS=576）；主动学习 40 点达 RMSE≈1.0（均匀需约 200 点，效率约 5×）。 |
+| 委托–代理契约 | 努力不可观测时，最小事故罚金 **P\*≈220 万元**（理论 18/0.083≈217，与 200 万威慑门槛互证）即诱导高努力；配套固定支付 w0\*=65.4 万；罚金为转移支付零和，契约设计价值 7.0 万元社会成本。 |
+| MDP 自适应巡检 | 状态依赖巡检（H≤5 低巡检、H≥8 高巡检）比全周期固定 f=0.2 省 **6.7 万元（6.5%）**：静态 102.8 万 vs 自适应 96.2 万——量化实时监测存量的经济回报。 |
 
-> 四模块的完整数值表、方法与"诚实记录"的失效分析见 [`docs/game_or_report.md`](docs/game_or_report.md)，配图 fig11–fig14。
+> 六模块的完整数值表、方法与"诚实记录"的失效分析见 [`docs/game_or_report.md`](docs/game_or_report.md)，配图 fig11–fig16。
 
 > 完整 20 项逐条对照、全部数值表与 6 张对比图见 [`docs/improvement_report.md`](docs/improvement_report.md)。
 
@@ -151,7 +159,7 @@ CI 在每次推送时跑单元测试与完整实验，并校验关键指标是�
 - **Markdown 版（本仓库）**：[`docs/paper.md`](docs/paper.md)
 - **飞书文档（带交互矢量配图）**：https://my.feishu.cn/docx/ZWBFd5p1Got9rHxjgHicVXiDn0e ，位于云盘 `土木工程 / 07_施工安全SD-MCS仿真`
 
-七张 v2 论文 SVG 配图与三张 v2-vs-v3 对比图（共十张）位于 [`docs/figures/`](docs/figures/)。另加博弈/运筹四张（fig11–fig14）。引用格式见 `CITATION.cff`。
+七张 v2 论文 SVG 配图与三张 v2-vs-v3 对比图（共十张）位于 [`docs/figures/`](docs/figures/)。另加博弈/运筹六张（fig11–fig16）。引用格式见 `CITATION.cff`。
 
 ## 八、License
 

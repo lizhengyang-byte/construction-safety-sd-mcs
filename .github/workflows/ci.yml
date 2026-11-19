@@ -26,6 +26,22 @@ jobs:
       - name: Reproduce experiments
         run: python src/experiments.py
 
+      - name: Smoke-test game/OR modules
+        run: |
+          python src/or_opt.py
+          python src/principal_agent.py
+          python src/mdp_inspection.py
+          python - <<'PY'
+          import json
+          pa = json.load(open("output/principal_agent.json", encoding="utf-8"))
+          md = json.load(open("output/mdp_inspection.json", encoding="utf-8"))
+          # 委托–代理最小罚金应落在 200–240 万元量级（IC 阈值）
+          assert 190 < pa["P_star"] < 250, pa["P_star"]
+          # MDP 自适应应不劣于静态最优
+          assert md["mdp_adaptive_cost"] <= md["static_best"]["cost"] + 1e-6
+          print("game/OR smoke OK")
+          PY
+
       - name: Check key metrics (regression guard)
         run: |
           python - <<'PY'

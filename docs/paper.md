@@ -2,9 +2,9 @@
 
 **——成本、进度、安全三重约束下的仿真、鲁棒决策与多方博弈**
 
-> 系统动力学建模 · 五维拉丁超立方抽样 · 共同随机数 · 分层/重要性采样 · Sobol 全局敏感性 · CVaR 与鲁棒优化 · Stackelberg 博弈 · 公共品博弈 · RBF 代理与主动学习
+> 系统动力学建模 · 五维拉丁超立方抽样 · 共同随机数 · 分层/重要性采样 · Sobol 全局敏感性 · CVaR 与鲁棒优化 · Stackelberg 博弈 · 公共品博弈 · 委托–代理机制设计 · MDP 动态规划 · RBF 代理与主动学习
 >
-> 本文为论文 Markdown 版，全部数值由本仓库 `src/` 下脚本复现，随机种子固定。配套报告见 [`docs/improvement_report.md`](improvement_report.md)（v2→v3 二十项机制增强）与 [`docs/game_or_report.md`](game_or_report.md)（v3.1 博弈/运筹扩展）。
+> 本文为论文 Markdown 版，全部数值由本仓库 `src/` 下脚本复现，随机种子固定。配套报告见 [`docs/improvement_report.md`](improvement_report.md)（v2→v3 二十项机制增强）与 [`docs/game_or_report.md`](game_or_report.md)（v3.2 博弈/运筹六模块扩展）。
 
 ---
 
@@ -16,25 +16,25 @@
 
 **第二层（敏感性、校准与不确定性）**：用五维拉丁超立方 + 共同随机数（CRN）抽样，Sobol 全局敏感性揭示隐患生成率 `g0`（总效应 0.385）为第一主导因子，纠正了单因素分析对巡检参数的过度归因；两层不确定性分解显示偶然不确定性占 96.9%，说明事故成本本质由"运气"主导；PIT 尾部覆盖率 80/90/95% 档为 80.2/90.1/95.0%，校准近乎完美。
 
-**第三层（决策优化与博弈）**：(1) 运筹决策层将 (投入 I, 巡检频次 f) 作为决策变量，求解期望最优、CVaR 最优与鲁棒 min-max 三类随机规划，量化"风险厌恶定价"；(2) 监管–承包商 Stackelberg 博弈给出**威慑门槛**（事故处罚/赔付基数须达约 200 万元量级，承包商才自愿诚实投入）与均衡检查强度 e\*=0（重罚到位后额外监查多余）；(3) 多承包商公共品博弈揭示**公地悲剧**——N>1 时 Nash 投入恒低于社会最优达 50%，需总包统一管理或联保连坐内部化外部性；(4) 蒙特卡洛引擎本身经分层抽样、重要性采样与主动学习优化，在稀有事故尾部估计上以约 1/5 的样本达到同等精度（并诚实记录按输入参数分层反而失效的教训）。
+**第三层（决策优化与博弈）**：(1) 运筹决策层将 (投入 I, 巡检频次 f) 作为决策变量，求解期望最优、CVaR 最优与鲁棒 min-max 三类随机规划，量化"风险厌恶定价"；(2) 监管–承包商 Stackelberg 博弈给出**威慑门槛**（事故处罚/赔付基数须达约 200 万元量级，承包商才自愿诚实投入）与均衡检查强度 e\*=0（重罚到位后额外监查多余）；(3) 多承包商公共品博弈揭示**公地悲剧**——N>1 时 Nash 投入恒低于社会最优达 50%，需总包统一管理或联保连坐内部化外部性；(4) 蒙特卡洛引擎本身经分层抽样、重要性采样与主动学习优化，在稀有事故尾部估计上以约 1/5 的样本达到同等精度（并诚实记录按输入参数分层反而失效的教训）；(5) 委托–代理机制设计在努力不可观测下求出最小事故罚金 P\*≈220 万元（与 200 万威慑门槛互证），契约设计价值 7 万元；(6) 有限期 MDP 求状态依赖最优巡检策略，比全周期固定巡检省 6.7 万元（6.5%）。
 
 **主要结论**：期望最优与尾部最优分离（v3 会更尖锐）；安全治理应先立重罚、再谈检查；公共安全投入不足是结构性而非个体道德问题；MC 方法选择须匹配"要估什么、按什么分层"。三套方案（投入 8/20/40 万元）在 v3 全特性下事故概率 48.6%/26.4%/14.0%、期望总成本 63.0/73.8/111.7 万元、CVaR95 204.6/190.0/202.4 万元。
 
-**关键词：** 施工安全管理；系统动力学；蒙特卡洛模拟；风险量化；尾部风险；Sobol 全局敏感性；CVaR；鲁棒优化；Stackelberg 博弈；公共品博弈；主动学习
+**关键词：** 施工安全管理；系统动力学；蒙特卡洛模拟；风险量化；尾部风险；Sobol 全局敏感性；CVaR；鲁棒优化；Stackelberg 博弈；公共品博弈；委托–代理；MDP；主动学习
 
 ## Abstract
 
 Construction safety decisions hinge less on *whether* to invest than on *how much* investment, under *what* inspection frequency, yields what distribution of accident probability, total cost and schedule loss within a construction cycle — and, in a multi-agent setting, on *how incentives should be designed* so that safety investment is actually delivered. This paper builds a three-layer coupled framework: system dynamics (SD) for the hazard-stock dynamics, Monte Carlo simulation (MCS) for distributional risk quantification, and game theory / operations research for decision optimization.
 
-Layer 1 enhances a baseline SD–MCS model with **twenty mechanistic upgrades** — decoupling of investment and inspection frequency, accident-triggered risk feedback, two-level uncertainty decomposition, rank-correlated parameter sampling, loss–downtime copula, inspection-quality decay, inspection-cost accounting, tri-phase and Markov weather, CVaR, independent random streams, graded hand-over and an RBF surrogate — all switchable via a `FEATURES` dictionary so each is attributable and the whole degrades exactly to the baseline. Layer 2 applies Latin hypercube sampling with common random numbers; Sobol global sensitivity identifies the hazard-generation rate `g0` (total effect 0.385) as the dominant factor, correcting single-factor over-attribution; aleatory uncertainty accounts for 96.9% of cost variance; PIT tail coverage is near-perfect (80.2/90.1/95.0%). Layer 3 adds (i) operations-research optimization of (I, f) under expected-cost, CVaR and robust min-max criteria; (ii) a regulator–contractor Stackelberg game yielding a deterrence threshold (penalty base ≳ 2.0M to make honesty rational) and an equilibrium inspection intensity e\*=0; (iii) a multi-contractor public-good game exposing a 50% commons under-provision; and (iv) variance reduction and active learning that reach equal tail accuracy with ~1/5 the samples. The mean-optimal and tail-optimal schemes diverge; governance should price penalties first and inspect later; public-safety under-investment is structural; and MC method choice must match what is estimated and how strata are formed.
+Layer 1 enhances a baseline SD–MCS model with **twenty mechanistic upgrades** — decoupling of investment and inspection frequency, accident-triggered risk feedback, two-level uncertainty decomposition, rank-correlated parameter sampling, loss–downtime copula, inspection-quality decay, inspection-cost accounting, tri-phase and Markov weather, CVaR, independent random streams, graded hand-over and an RBF surrogate — all switchable via a `FEATURES` dictionary so each is attributable and the whole degrades exactly to the baseline. Layer 2 applies Latin hypercube sampling with common random numbers; Sobol global sensitivity identifies the hazard-generation rate `g0` (total effect 0.385) as the dominant factor, correcting single-factor over-attribution; aleatory uncertainty accounts for 96.9% of cost variance; PIT tail coverage is near-perfect (80.2/90.1/95.0%). Layer 3 adds (i) operations-research optimization of (I, f) under expected-cost, CVaR and robust min-max criteria; (ii) a regulator–contractor Stackelberg game yielding a deterrence threshold (penalty base ≳ 2.0M to make honesty rational) and an equilibrium inspection intensity e\*=0; (iii) a multi-contractor public-good game exposing a 50% commons under-provision; (iv) variance reduction and active learning that reach equal tail accuracy with ~1/5 the samples; (v) a principal–agent contract under unobservable effort yielding a minimum penalty P\*≈2.2M (consistent with the 2.0M deterrence threshold) worth 70K in social cost; and (vi) a finite-horizon MDP whose state-dependent inspection policy saves 67K (6.5%) over a fixed-frequency schedule. The mean-optimal and tail-optimal schemes diverge; governance should price penalties first and inspect later; public-safety under-investment is structural; inspection should adapt to hazard stock; and MC method choice must match what is estimated and how strata are formed.
 
-**Key words:** construction safety management; system dynamics; Monte Carlo simulation; tail risk; Sobol sensitivity; CVaR; robust optimization; Stackelberg game; public-good game; active learning
+**Key words:** construction safety management; system dynamics; Monte Carlo simulation; tail risk; Sobol sensitivity; CVaR; robust optimization; Stackelberg game; public-good game; principal–agent; MDP; active learning
 
 **四项核心结论**
 
 - **动态反馈决定风险水平，源头优于巡检**：三方案稳态隐患量为 7.2/3.1/1.5 个；Sobol 总效应显示 `g0`（0.385）> `θ`（0.313）> `k_d`（0.282），管理应转向"降低隐患生成"而非一味加密巡检。
 - **均值与尾部不一致且更尖锐**：巡检成本入账后，期望成本最低仍非高投入，但 P95/CVaR 上高投入才压尾部——买确定性而非期望收益。
-- **威慑有门槛、公地有悲剧**：处罚基数跨过约 200 万元门槛承包商才自愿诚实；重罚到位后检查多余（e\*=0）；5 家共用公共安全时 Nash 投入仅为社会最优的 50%。
+- **威慑有门槛、公地有悲剧**：处罚基数跨过约 200 万元门槛承包商才自愿诚实；重罚到位后检查多余（e\*=0）；5 家共用公共安全时 Nash 投入仅为社会最优的 50%。委托–代理机制设计给出最小罚金 P\*≈220 万元与契约设计价值 7 万元；MDP 状态依赖巡检比固定频次省 6.7 万元（6.5%）。
 - **MC 引擎可优化但需对症**：重要性采样以 2000 样本逼近 5 万样本稀有概率（ESS=576），主动学习 40 点达均匀 200 点精度；而按输入参数机械分层反而变差——分层变量须对准目标量。
 
 ---
@@ -56,7 +56,7 @@ Layer 1 enhances a baseline SD–MCS model with **twenty mechanistic upgrades** 
 1. **机制层**：20 项可逐位回退的机制增强（详见 §3），并给出逐项数值归因。
 2. **方法层**：Sobol 全局敏感性纠偏、两层不确定性分解、PIT 校准、分岔分析、RBF 代理加速（~9000×）与主动学习采样。
 3. **决策层**：将成本模型嵌入期望/CVaR/鲁棒三类随机规划，量化风险厌恶定价。
-4. **博弈层**：监管–承包商 Stackelberg 威慑门槛、多承包商公地悲剧、MC 引擎方差缩减。
+4. **博弈层**：监管–承包商 Stackelberg 威慑门槛、多承包商公地悲剧、以及委托–代理最优激励契约（努力不可观测下的机制设计）；运筹层的 MDP 自适应巡检把静态频次推进到状态依赖序贯决策；MC 引擎方差缩减。
 
 ---
 
@@ -220,17 +220,58 @@ PHI 从 0→1 时 Nash 投入 0→12、缺口 100%→0%，外部性完全感知�
 
 ---
 
-## 9 综合结论与管理启示
+## 9 委托–代理最优激励契约：努力不可观测下的机制设计
 
-1. **动态反馈决定风险水平，源头优于巡检**：Sobol 总效应 `g0`>θ>`k_d`；管理应从"加密巡检"转向"降低隐患生成"。
-2. **均值与尾部分离（巡检成本入账后更尖锐）**：买确定性而非期望收益；风险厌恶者靠提高巡检频次压尾部。
-3. **威慢有门槛、公地有悲剧**：先立重罚（≥200 万元量级）再谈检查；公共安全投入不足是结构性，需制度内部化外部性。
-4. **运气主导方差，决策用区间而非点**：偶然不确定性占 96.9%，应以"目标投入区间 + 尾部风险准备金"替代单一投入水平。
-5. **MC 方法须对症**：IS 与主动学习真正省样本，机械分层失效——方法匹配"估什么、怎么分层"。
+第 6–7 节分析"给定处罚承包商如何反应"，本节进一步回答**努力不可观测、只能观测事故结果时，监管者应如何设计激励契约诱导高安全努力**——经典委托–代理（moral hazard）问题。
+
+**建模**（`src/principal_agent.py`，N=2 万 MC）：承包商可选高/低努力（对应投入 I=30/8），事故概率由 MC 估得 p_high=0.238、p_low=0.322；努力成本为承包商私有信息（高努力均值 18 万元）；契约 = 固定支付 w0 + 事故罚金 P。**关键约定**：罚金 P 与 w0 是委托人–代理人之间的转移支付，对**社会总成本零和抵消**——P 的唯一作用是满足激励相容（IC），不直接进入社会成本；真实社会成本 = 事故社会损失 + 真实努力成本 + 保留效用。
+
+**结果**：
+
+| 量 | 值 |
+|---|---|
+| 事故概率：低/高努力 | 0.322 / 0.238（努力降事故 0.083） |
+| 最优目标努力 | 高努力（社会成本 94.5 < 低努力 101.5 万元） |
+| **最小事故罚金 P\*** | **220 万元**（IC 恰好绑定） |
+| 配套固定支付 w0\* | 65.4 万元 |
+| 不设罚金（P=0）社会成本 | 101.5 万元 |
+| **契约设计价值** | **7.0 万元** |
+
+**要点**：P\* ≈ 220 万与第 6 节序贯博弈给出的 200 万威慑门槛**量级一致、互相印证**——两条独立路径（合同设计 vs Stackelberg 博弈）指向同一政策结论：事故罚金须达约 200 万元量级方能使诚实理性。罚金再高也只重新分配而非增加社会负担（转移支付零和），这正是机制设计与单纯加税的根本区别（`fig15_contract.svg`）。
 
 ---
 
-## 10 局限与展望
+## 10 MDP 自适应巡检：状态依赖的序贯决策
+
+前述模型均把巡检频次 f 当作**全周期常数**。但隐患存量 H 实时可观测：H 低可放宽巡检省钱，H 高应加密巡检防事故——这是状态依赖的序贯决策。本节把它建成有限期 MDP，用值迭代求最优策略，并以**蒙特卡洛前向模拟**评估"自适应 vs 静态"成本增益。
+
+**MDP 定义**（`src/mdp_inspection.py`，T=180 天）：状态 s = 隐患存量 H 分档（0..20）；动作 a = 当日巡检强度 {低 f=0.2, 中 f=0.6, 高 f=1.2}；转移 P(s'|s,a) 与即时成本 C(s,a) 由 MC 一步模拟估计（隐患生成 + 巡检整改 + 事故注入）；有限期后向值迭代 `V_t(s)=min_a{C(s,a)+Σ_{s'}P(s'|s,a)V_{t+1}(s')}`。
+
+**结果**：
+
+| 策略 | 巡检方式 | 期望总成本 |
+|---|---|---|
+| 静态最优 | 全周期固定 f=0.2（低） | 102.8 万元 |
+| **MDP 自适应** | 依存量动态调整 | **96.2 万元（±0.15）** |
+| **自适应增益** | — | **6.7 万元（6.5%）** |
+
+**要点**：最优策略呈清晰状态阈值——**H≤5 低巡检、H≥8 高巡检**；存量偶发飙高（如事故注入）时自适应策略临时加密、静态策略不会，故被尾部事故拖累。6.7 万元即"按需巡检"相对"固定频次巡检"的精确溢价，可作为智能安全监测系统投入的上限参考，且阈值规则可直接写入现场管理规程（`fig16_mdp.svg`）。
+
+---
+
+## 11 综合结论与管理启示
+
+1. **动态反馈决定风险水平，源头优于巡检**：Sobol 总效应 `g0`>θ>`k_d`；管理应从"加密巡检"转向"降低隐患生成"。
+2. **均值与尾部分离（巡检成本入账后更尖锐）**：买确定性而非期望收益；风险厌恶者靠提高巡检频次压尾部。
+3. **威慑有门槛、公地有悲剧**：先立重罚（≥200 万元量级）再谈检查；公共安全投入不足是结构性，需制度内部化外部性。
+4. **运气主导方差，决策用区间而非点**：偶然不确定性占 96.9%，应以"目标投入区间 + 尾部风险准备金"替代单一投入水平。
+5. **MC 方法须对症**：IS 与主动学习真正省样本，机械分层失效——方法匹配"估什么、怎么分层"。
+6. **激励契约可设计、罚金门槛与博弈一致**：委托–代理给出最小罚金 P\*≈220 万（与 200 万威慑门槛互证），契约设计价值 7 万元；罚金为转移支付零和，只解决 IC 不增社会负担。
+7. **巡检应随存量自适应**：MDP 策略（H≥8 加密）比全周期固定巡检省 6.7 万元（6.5%），量化了实时监测存量的经济回报。
+
+---
+
+## 12 局限与展望
 
 - 参数为示例标定值（台账反演 + 文献区间），未经现场实测校准；用于方法演示与方案比选，不可直接作为具体工程决策依据。
 - 聚合型模型（无空间分辨率、无个体异质性）。
@@ -249,9 +290,11 @@ python src/or_opt.py        # 运筹决策层：期望/CVaR/鲁棒最优 (I,f)
 python src/game.py          # 监管–承包商 Stackelberg 博弈 + 威慑门槛
 python src/game_multi.py    # 多承包商公地悲剧
 python src/mc_advanced.py   # MC 方差缩减 + 主动学习
+python src/principal_agent.py  # 委托–代理最优激励契约
+python src/mdp_inspection.py   # MDP 自适应巡检策略
 python src/compare_figs.py  # v2-vs-v3 对比图
 python src/render_svg.py    # 生成 docs/figures/*.svg
 pytest -q                   # 14 项单元测试
 ```
 
-数值输出：`output/results.json`、`comparison.json`、`validate.json`、`surrogate.json`、`or_opt.json`、`game.json`、`game_multi.json`、`mc_advanced.json`。图：`docs/figures/fig1`–`fig14` 及三张对比图 `cmp1`–`cmp3`。
+数值输出：`output/results.json`、`comparison.json`、`validate.json`、`surrogate.json`、`or_opt.json`、`game.json`、`game_multi.json`、`mc_advanced.json`、`principal_agent.json`、`mdp_inspection.json`。图：`docs/figures/fig1`–`fig16` 及三张对比图 `cmp1`–`cmp3`。

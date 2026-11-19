@@ -1,0 +1,518 @@
+{
+  "p_low": 0.3216,
+  "p_high": 0.2384,
+  "c_low": 0.0022936491384453264,
+  "c_high": 17.995332694720965,
+  "social_loss": 300.0,
+  "reserve": 5.0,
+  "best_contract": {
+    "P": 220.0,
+    "effort": "high",
+    "w0": 65.44333269472097,
+    "agent_net": -5.0,
+    "principal_cost": 94.51533269472097,
+    "participate": true
+  },
+  "regime": "诱导高努力",
+  "target_effort": "high",
+  "P_star": 220.0,
+  "w0_star": 65.44333269472097,
+  "cost_high": 94.51533269472097,
+  "cost_low": 101.48229364913846,
+  "info_rent": 0.0,
+  "first_best_cost": 94.51533269472097,
+  "second_best_cost": 94.51533269472097,
+  "efficiency_loss": 0.0,
+  "no_contract_cost": 101.48229364913846,
+  "contract_value": 6.9669609544174875,
+  "contract_curve": [
+    {
+      "P": 0.0,
+      "effort": "low",
+      "w0": -4.997706350861555,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 5.0,
+      "effort": "low",
+      "w0": -3.3897063508615544,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 10.0,
+      "effort": "low",
+      "w0": -1.7817063508615543,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 15.0,
+      "effort": "low",
+      "w0": -0.17370635086155506,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 20.0,
+      "effort": "low",
+      "w0": 1.4342936491384455,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 25.0,
+      "effort": "low",
+      "w0": 3.042293649138445,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 30.0,
+      "effort": "low",
+      "w0": 4.650293649138446,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 35.0,
+      "effort": "low",
+      "w0": 6.258293649138446,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 40.0,
+      "effort": "low",
+      "w0": 7.866293649138447,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 45.0,
+      "effort": "low",
+      "w0": 9.474293649138446,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 50.0,
+      "effort": "low",
+      "w0": 11.082293649138443,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 55.0,
+      "effort": "low",
+      "w0": 12.690293649138443,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 60.0,
+      "effort": "low",
+      "w0": 14.298293649138444,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 65.0,
+      "effort": "low",
+      "w0": 15.906293649138444,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 70.0,
+      "effort": "low",
+      "w0": 17.514293649138445,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 75.0,
+      "effort": "low",
+      "w0": 19.122293649138445,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 80.0,
+      "effort": "low",
+      "w0": 20.730293649138446,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 85.0,
+      "effort": "low",
+      "w0": 22.338293649138443,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 90.0,
+      "effort": "low",
+      "w0": 23.946293649138443,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 95.0,
+      "effort": "low",
+      "w0": 25.554293649138444,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 100.0,
+      "effort": "low",
+      "w0": 27.16229364913844,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 105.0,
+      "effort": "low",
+      "w0": 28.770293649138445,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 110.0,
+      "effort": "low",
+      "w0": 30.378293649138442,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 115.0,
+      "effort": "low",
+      "w0": 31.986293649138446,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 120.0,
+      "effort": "low",
+      "w0": 33.59429364913844,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 125.0,
+      "effort": "low",
+      "w0": 35.20229364913845,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 130.0,
+      "effort": "low",
+      "w0": 36.810293649138444,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 135.0,
+      "effort": "low",
+      "w0": 38.41829364913844,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 140.0,
+      "effort": "low",
+      "w0": 40.026293649138445,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 145.0,
+      "effort": "low",
+      "w0": 41.63429364913844,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 150.0,
+      "effort": "low",
+      "w0": 43.242293649138446,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 155.0,
+      "effort": "low",
+      "w0": 44.85029364913844,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 160.0,
+      "effort": "low",
+      "w0": 46.45829364913845,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 165.0,
+      "effort": "low",
+      "w0": 48.066293649138444,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 170.0,
+      "effort": "low",
+      "w0": 49.67429364913844,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 175.0,
+      "effort": "low",
+      "w0": 51.282293649138445,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 180.0,
+      "effort": "low",
+      "w0": 52.89029364913844,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 185.0,
+      "effort": "low",
+      "w0": 54.498293649138446,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 190.0,
+      "effort": "low",
+      "w0": 56.10629364913844,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 195.0,
+      "effort": "low",
+      "w0": 57.71429364913844,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 200.0,
+      "effort": "low",
+      "w0": 59.322293649138444,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 205.0,
+      "effort": "low",
+      "w0": 60.93029364913845,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 210.0,
+      "effort": "low",
+      "w0": 62.53829364913845,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 215.0,
+      "effort": "low",
+      "w0": 64.14629364913846,
+      "agent_net": -5.0,
+      "principal_cost": 101.48229364913846,
+      "participate": true
+    },
+    {
+      "P": 220.0,
+      "effort": "high",
+      "w0": 65.44333269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 225.0,
+      "effort": "high",
+      "w0": 66.63533269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 230.0,
+      "effort": "high",
+      "w0": 67.82733269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 235.0,
+      "effort": "high",
+      "w0": 69.01933269472096,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 240.0,
+      "effort": "high",
+      "w0": 70.21133269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 245.0,
+      "effort": "high",
+      "w0": 71.40333269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 250.0,
+      "effort": "high",
+      "w0": 72.59533269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 255.0,
+      "effort": "high",
+      "w0": 73.78733269472096,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 260.0,
+      "effort": "high",
+      "w0": 74.97933269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 265.0,
+      "effort": "high",
+      "w0": 76.17133269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 270.0,
+      "effort": "high",
+      "w0": 77.36333269472095,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 275.0,
+      "effort": "high",
+      "w0": 78.55533269472096,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 280.0,
+      "effort": "high",
+      "w0": 79.74733269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 285.0,
+      "effort": "high",
+      "w0": 80.93933269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 290.0,
+      "effort": "high",
+      "w0": 82.13133269472095,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 295.0,
+      "effort": "high",
+      "w0": 83.32333269472096,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    },
+    {
+      "P": 300.0,
+      "effort": "high",
+      "w0": 84.51533269472097,
+      "agent_net": -5.0,
+      "principal_cost": 94.51533269472097,
+      "participate": true
+    }
+  ]
+}
