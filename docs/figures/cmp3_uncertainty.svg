@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="363.417998pt" height="237.954277pt" viewBox="0 0 363.417998 237.954277" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-20T00:01:49.629283</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.0, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.954277 
+L 363.417998 237.954277 
+L 363.417998 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 129.85 43.313193 
+C 119.253666 43.313193 108.753984 45.33491 98.915291 49.269681 
+C 89.076598 53.204451 80.078378 58.980495 72.404265 66.287361 
+C 64.730152 73.594228 58.520144 82.29862 54.108015 91.932696 
+C 49.695886 101.566773 47.162126 111.95478 46.642917 122.538387 
+C 46.123709 133.121993 47.628525 143.708124 51.076484 153.727799 
+C 54.524444 163.747474 59.852647 173.017905 66.774714 181.040828 
+C 73.696781 189.063751 82.086435 195.692805 91.49275 200.571693 
+C 100.899064 205.450581 111.150443 208.490299 121.695896 209.527468 
+C 132.241349 210.564637 142.888499 209.580337 153.065084 206.627472 
+C 163.24167 203.674606 172.762042 198.807044 181.114501 192.286405 
+C 189.46696 185.765767 196.499135 177.711007 201.833062 168.555051 
+C 207.166988 159.399094 210.705361 149.308972 212.257999 138.827006 
+C 213.810638 128.34504 213.349218 117.662449 210.898541 107.353401 
+C 208.447863 97.044352 204.052635 87.296911 197.94909 78.63498 
+C 191.845545 69.97305 184.145028 62.554647 175.261426 56.778496 
+C 166.377824 51.002346 156.473198 46.973819 146.0799 44.909441 
+L 129.85 126.620342 
+z
+" style="fill: #c3cad6"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 146.569146 39.935013 
+C 143.898382 39.40453 141.203214 39.005309 138.49335 38.738788 
+C 135.783487 38.472267 133.062185 38.338766 130.339246 38.338766 
+L 130.339246 121.645914 
+z
+" style="fill: #1a2b4a"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2"/>
+   <g id="text_1">
+    <text style="font-size: 11px; font-family: 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: middle" x="129.85" y="16.486406" transform="rotate(-0 129.85 16.486406)">图 C  成本方差分解：偶然 vs 认知不确定性（S2）</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_4">
+     <path d="M 242.083936 122.08958 
+L 260.083936 122.08958 
+L 260.083936 115.78958 
+L 242.083936 115.78958 
+z
+" style="fill: #c3cad6"/>
+    </g>
+    <g id="text_2">
+     <text style="font-size: 9px; font-family: 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start" x="267.283936" y="122.08958" transform="rotate(-0 267.283936 122.08958)">偶然不确定性  96.9%</text>
+    </g>
+    <g id="patch_5">
+     <path d="M 242.083936 136.406436 
+L 260.083936 136.406436 
+L 260.083936 130.106436 
+L 242.083936 130.106436 
+z
+" style="fill: #1a2b4a"/>
+    </g>
+    <g id="text_3">
+     <text style="font-size: 9px; font-family: 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', 'DejaVu Sans', sans-serif; text-anchor: start" x="267.283936" y="136.406436" transform="rotate(-0 267.283936 136.406436)">认知不确定性  3.1%</text>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
