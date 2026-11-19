@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this code or the accompanying paper, please cite this repository."
+title: "construction-safety-sd-mcs: System Dynamics + Monte Carlo simulation for construction safety risk quantification"
+abstract: "A reproducible SD + MCS framework that quantifies accident probability, cost distribution and schedule loss for construction safety investment schemes, with common random numbers and bootstrap confidence intervals."
+authors:
+  - family-names: "Li"
+    given-names: "Shangru"
+repository-code: "https://github.com/lizhengyang-byte/construction-safety-sd-mcs"
+url: "https://github.com/lizhengyang-byte/construction-safety-sd-mcs"
+license: MIT
+keywords:
+  - construction safety
+  - system dynamics
+  - Monte Carlo simulation
+  - tail risk
+  - Latin hypercube sampling
+version: 2.0.0
+date-released: 2026-11-19
